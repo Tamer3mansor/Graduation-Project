@@ -3,3 +3,18 @@ We use eslint configrition
 for more details => https://eslint.org/docs/latest/use/getting-started
 
 using bycript for password hashing 
+
+<- main step ->
+create cluster
+connect database
+create schema 
+create route <get post delete put>
+create controller <logIn signUP....>
+add HandelError
+add Auth <jwt>
+add logger
+add audit
+swigger
+unit test 
+
+
