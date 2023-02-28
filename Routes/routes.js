@@ -1,8 +1,12 @@
 const Express = require('Express')
-const link = Express.Router()
-const { loginPost, signupPost } = require('../Controller/controller')
-link.get('/login', loginPost)
-link.post('/signup', signupPost)
-link.put('/', (req, res) => { })
-link.delete('/', (req, res) => { })
-module.exports = link
+const userApi = Express.Router()
+const {
+  getUsers,
+  createUser,
+  getSpecificUser,
+  deleteUser,
+  updateUser
+} = require('../Controller/controller')
+userApi.route('/').post(createUser).get(getUsers)
+userApi.route('/:id').get(getSpecificUser).put(updateUser).delete(deleteUser)
+module.exports = userApi

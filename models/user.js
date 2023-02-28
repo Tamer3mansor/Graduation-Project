@@ -14,14 +14,20 @@ const userSchema = new mongoose.Schema({
     require: [true, 'please enter a password'],
     minlength: [6, 'password must be more than 6 char']
   },
-  Level: {
+  level: {
     type: String,
     require: [true]
-  }
-})
+  },
+  score: Number
+},
+{ timestamps: true }
+)
 // bcrypt passwords
 userSchema.pre('save', async function (next) {
   const salt = await bcrypt.genSalt()
   this.password = await bcrypt.hash(this.password, salt)
   next()
 })
+const userModel = mongoose.model('userModel', userSchema)
+module.exports = userModel
+//
