@@ -4,12 +4,14 @@ module.exports = {
     commonjs: true,
     es2021: true
   },
-  extends: 'standard',
+  extends: "standard",
   overrides: [
   ],
   parserOptions: {
-    ecmaVersion: 'latest'
+    ecmaVersion: "latest"
   },
   rules: {
+    semi: ["error", "always"],
+    quotes: ["error", "double"]
   }
-}
+};
