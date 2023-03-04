@@ -1,3 +1,4 @@
+/* eslint-disable new-cap */
 const userModel = require("../models/user");
 const asyncHandler = require("express-async-handler");
 const apiError = require("../utils/apiError");
@@ -11,10 +12,16 @@ const createUser = asyncHandler(async (req, res, next) => {
   const { email, password } = req.body;
   const level = req.body.level || "000";
   const score = req.body.score || "000";
-  const user = await userModel.create({ email, password, level, score });
-  console.log(`this is error${user}`);
+  try {
+    const user = await userModel.create({ email, password, level, score });
+    if (user) res.status(201).json({ data: user });
+  } catch (error) {
+    let message = "";
+    if (error.code === 11000) { message += `This email already in dataBase<${error.name}>`; } else message += `Error while trying to create try agin <${error.name}>`;
+    // eslint-disable-next-line new-cap
+    next(new apiError(message), error.code);
+  }
   // eslint-disable-next-line new-cap
-  if (user) res.status(201).json({ data: user }); else return next(new apiError("rebate username"));
 });
 const getSpecificUser = asyncHandler(async (req, res, next) => {
   const { id } = req.params;

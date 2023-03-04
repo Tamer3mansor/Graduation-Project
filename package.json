@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start:dev":"nodemon app.js",
-    "start:prod":"SET NODE_ENV=production & node app.js",
+    "start:dev": "nodemon app.js",
+    "start:prod": "SET NODE_ENV=production & node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -16,6 +16,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
+    "express-validator": "^6.15.0",
     "mongoose": "^6.9.2",
     "morgan": "^1.10.0",
     "validator": "^13.9.0"

@@ -18,8 +18,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     require: [true]
   },
-  score: Number
+  score: Number,
+  image: String
 },
+
 { timestamps: true }
 );
 // bcrypt passwords

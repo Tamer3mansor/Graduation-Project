@@ -13,11 +13,16 @@ app.use(Express.json());
 app.use("/api/v1/user", userRoutes);
 app.all("*", notfound);
 app.use(globalError);
-const start = () => {
-  db.connect(process.env.uri).then(() => {
-    app.listen(process.env.port || 3000, () => { console.log(`app listen at port ${process.env.port || 3000}`); });
-  }).catch((error) => {
-    console.log(`there are problem ${error}`);
+let server = 0;
+db.connect(process.env.uri).then(() => {
+  server = app.listen(process.env.port || 3000, () => { console.log(`app listen at port ${process.env.port || 3000}`); });
+}).catch((error) => {
+  console.log(`there are problem ${error}`);
+});
+// Handel error out express <async code>
+process.on("unhandledRejection", (error) => {
+  console.error(`unhandledRejection Error ${error.name}`);
+  server.close(() => {
+    process.exit(1);
   });
-};
-start();
+});
