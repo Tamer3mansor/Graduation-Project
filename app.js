@@ -5,10 +5,13 @@ const morgan = require("morgan");
 const userRoutes = require("./Routes/routes");
 const notfound = require("./MiddleWares/NotFound");
 const globalError = require("./MiddleWares/globalError");
+const cookieParser = require("cookie-parser");
 require("dotenv").config();
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
+app.use(Express.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(Express.json());
 app.use("/api/v1/user", userRoutes);
 app.all("*", notfound);

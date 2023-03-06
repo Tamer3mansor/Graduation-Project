@@ -11,7 +11,7 @@ create schema  *
 create route <get post delete put> *
 create controller <logIn signUP....> *
 add HandelError *
-add Auth <jwt>
+add Auth <jwt> *
 add logger
 add audit
 swigger

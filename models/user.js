@@ -1,3 +1,4 @@
+/* eslint-disable new-cap */
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const { isEmail } = require("validator");
@@ -21,7 +22,10 @@ const userSchema = new mongoose.Schema(
       require: [true]
     },
     score: Number,
-    image: String
+    image: {
+      data: Buffer,
+      contentType: String
+    }
   },
 
   { timestamps: true }
@@ -49,4 +53,3 @@ userSchema.statics.loginAuth = async function (email, password) {
 const userModel = mongoose.model("userModel", userSchema);
 
 module.exports = userModel;
-//

@@ -18,10 +18,10 @@ const checkMail = [
     .withMessage("Too short name")
     .isLength({ max: 35 })
     .withMessage("Max length is 35 char"),
-  message,
+  message
 ];
 const checkPassword = [
   body("password").notEmpty().withMessage("Password is required"),
-  message,
+  message
 ];
 module.exports = { checkId, checkPassword, checkMail };

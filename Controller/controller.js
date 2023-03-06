@@ -9,22 +9,39 @@ const createToken = (id) => {
 const getUsers = asyncHandler(async (req, res, next) => {
   // pagination for return specific numbers
   const allUsers = await userModel.find({});
-  if (allUsers) { res.status(200).send(allUsers); } else { return next(new apiError("Not found", 400)); };
+  if (allUsers) {
+    res.status(200).send(allUsers);
+  } else {
+    return next(new apiError("Not found", 400));
+  }
 });
 const createUser = asyncHandler(async (req, res, next) => {
+  console.log(req.file);
   const { email, password } = req.body;
   const level = req.body.level || "000";
   const score = req.body.score || "000";
+  const image = "fghjk";
   try {
-    const user = await userModel.create({ email, password, level, score });
+    const user = await userModel.create({
+      email,
+      password,
+      level,
+      score,
+      image,
+    });
     const token = createToken(user._id);
     if (user) {
-      res.cookie("userjwt", token, { httpOnly: true, maxAge: 3 * 24 * 60 * 60 * 1000 });
+      res.cookie("userjwt", token, {
+        httpOnly: true,
+        maxAge: 3 * 24 * 60 * 60 * 1000,
+      });
       res.status(201).json({ data: user });
     }
   } catch (error) {
     let message = "";
-    if (error.code === 11000) { message += `This email already in dataBase<${error.name}>`; } else message += `Error while trying to create try agin <${error.name}>`;
+    if (error.code === 11000) {
+      message += `This email already in dataBase<${error.name}>`;
+    } else message += `Error while trying to create try agin <${error.name}>`;
     // eslint-disable-next-line new-cap
     next(new apiError(message), error.code);
   }
@@ -36,7 +53,10 @@ const getSpecificUser = asyncHandler(async (req, res, next) => {
   const user = await userModel.loginAuth(email, password);
   if (user) {
     const token = createToken(email, password);
-    res.cookie("userjwt", token, { httpOnly: true, maxAge: 3 * 24 * 60 * 60 * 1000 });
+    res.cookie("userjwt", token, {
+      httpOnly: true,
+      maxAge: 3 * 24 * 60 * 60 * 1000,
+    });
     res.status(200).json({ user });
   } else {
     next(new apiError("No User Found with this email"), 400);
@@ -76,11 +96,21 @@ const logOut = (req, res) => {
   res.cookie("userjwt", " ", { maxAge: 1 });
   res.redirect("/");
 };
+const imageUpload = asyncHandler(async (req, res) => {
+  upload(req, res, (err) => {
+    if (err) {
+      res.status(400).send("Something went wrong!");
+    }
+    res.send(req.file);
+  });
+});
+
 module.exports = {
   getUsers,
   createUser,
   getSpecificUser,
   deleteUser,
   updateUser,
-  logOut
+  logOut,
+  imageUpload,
 };
