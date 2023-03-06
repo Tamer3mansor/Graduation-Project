@@ -7,12 +7,21 @@ const message = (req, res, next) => {
   next();
 };
 
-const checkId = [check("category").isMongoId().withMessage("Invalid id"), message];
-const checkMail = [body("email").isEmail().withMessage("Enter valid mail")
-  .notEmpty().withMessage("mail required")
-  .isLength({ min: 3 }).withMessage("Too short name")
-  .isLength({ max: 35 }).withMessage("Max length is 35 char"), message];
+const checkId = [check("id").isMongoId().withMessage("Invalid id"), message];
+const checkMail = [
+  body("email")
+    .isEmail()
+    .withMessage("Enter valid mail")
+    .notEmpty()
+    .withMessage("mail required")
+    .isLength({ min: 3 })
+    .withMessage("Too short name")
+    .isLength({ max: 35 })
+    .withMessage("Max length is 35 char"),
+  message,
+];
 const checkPassword = [
   body("password").notEmpty().withMessage("Password is required"),
-  message];
+  message,
+];
 module.exports = { checkId, checkPassword, checkMail };
