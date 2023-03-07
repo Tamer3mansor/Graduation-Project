@@ -23,8 +23,7 @@ const userSchema = new mongoose.Schema(
     },
     score: Number,
     image: {
-      data: Buffer,
-      contentType: String
+      type: String
     }
   },
 

@@ -13,6 +13,7 @@ if (process.env.NODE_ENV === "development") {
 app.use(Express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(Express.json());
+app.use("/api/v1/user/upload", Express.static("upload"));
 app.use("/api/v1/user", userRoutes);
 app.all("*", notfound);
 app.use(globalError);

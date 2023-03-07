@@ -16,24 +16,23 @@ const getUsers = asyncHandler(async (req, res, next) => {
   }
 });
 const createUser = asyncHandler(async (req, res, next) => {
-  console.log(req.file);
   const { email, password } = req.body;
   const level = req.body.level || "000";
   const score = req.body.score || "000";
-  const image = "fghjk";
+  const image = req.file.path;
   try {
     const user = await userModel.create({
       email,
       password,
       level,
       score,
-      image,
+      image
     });
     const token = createToken(user._id);
     if (user) {
       res.cookie("userjwt", token, {
         httpOnly: true,
-        maxAge: 3 * 24 * 60 * 60 * 1000,
+        maxAge: 3 * 24 * 60 * 60 * 1000
       });
       res.status(201).json({ data: user });
     }
@@ -49,13 +48,12 @@ const createUser = asyncHandler(async (req, res, next) => {
 });
 const getSpecificUser = asyncHandler(async (req, res, next) => {
   const { email, password } = req.body;
-  console.log(email, password);
   const user = await userModel.loginAuth(email, password);
   if (user) {
     const token = createToken(email, password);
     res.cookie("userjwt", token, {
       httpOnly: true,
-      maxAge: 3 * 24 * 60 * 60 * 1000,
+      maxAge: 3 * 24 * 60 * 60 * 1000
     });
     res.status(200).json({ user });
   } else {
@@ -96,21 +94,11 @@ const logOut = (req, res) => {
   res.cookie("userjwt", " ", { maxAge: 1 });
   res.redirect("/");
 };
-const imageUpload = asyncHandler(async (req, res) => {
-  upload(req, res, (err) => {
-    if (err) {
-      res.status(400).send("Something went wrong!");
-    }
-    res.send(req.file);
-  });
-});
-
 module.exports = {
   getUsers,
   createUser,
   getSpecificUser,
   deleteUser,
   updateUser,
-  logOut,
-  imageUpload,
+  logOut
 };

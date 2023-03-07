@@ -6,7 +6,6 @@ const message = (req, res, next) => {
   }
   next();
 };
-
 const checkId = [check("id").isMongoId().withMessage("Invalid id"), message];
 const checkMail = [
   body("email")
