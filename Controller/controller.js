@@ -3,6 +3,7 @@ const userModel = require("../models/user");
 const asyncHandler = require("express-async-handler");
 const apiError = require("../utils/apiError");
 const jwt = require("jsonwebtoken");
+const log = require("../logging/controller");
 const createToken = (id) => {
   return jwt.sign({ id }, "secret", { expiresIn: 4 * 24 * 60 * 60 });
 };
@@ -10,8 +11,10 @@ const getUsers = asyncHandler(async (req, res, next) => {
   // pagination for return specific numbers
   const allUsers = await userModel.find({});
   if (allUsers) {
+    log.info("Accepted getUsers Operation");
     res.status(200).send(allUsers);
   } else {
+    log.error("Error : Not Found Error");
     return next(new apiError("Not found", 400));
   }
 });
@@ -30,6 +33,7 @@ const createUser = asyncHandler(async (req, res, next) => {
     });
     const token = createToken(user._id);
     if (user) {
+      log.info("Success Create user operation");
       res.cookie("userjwt", token, {
         httpOnly: true,
         maxAge: 3 * 24 * 60 * 60 * 1000
@@ -42,6 +46,7 @@ const createUser = asyncHandler(async (req, res, next) => {
       message += `This email already in dataBase<${error.name}>`;
     } else message += `Error while trying to create try agin <${error.name}>`;
     // eslint-disable-next-line new-cap
+    log.error({ message });
     next(new apiError(message), error.code);
   }
   // eslint-disable-next-line new-cap
@@ -53,10 +58,12 @@ const getSpecificUser = asyncHandler(async (req, res, next) => {
     const token = createToken(email, password);
     res.cookie("userjwt", token, {
       httpOnly: true,
-      maxAge: 3 * 24 * 60 * 60 * 1000
+      maxAge: 3 * 24 * 60 * 60 * 1000,
     });
     res.status(200).json({ user });
+    log.info("Success get user operation");
   } else {
+    log.error("No User Found with this email");
     next(new apiError("No User Found with this email"), 400);
   }
 });
@@ -67,8 +74,10 @@ const deleteUser = asyncHandler(async (req, res, next) => {
     const { id } = user._id;
     const deleted = await userModel.findByIdAndDelete(id);
     if (deleted) res.status(200).json({ deleted });
+    log.info("Success delete operation");
   } else {
     next(new apiError("No User Found with this id"), 400);
+    log.error("No User Found with this email");
   }
 });
 const updateUser = asyncHandler(async (req, res, next) => {
@@ -85,9 +94,10 @@ const updateUser = asyncHandler(async (req, res, next) => {
       { new: true }
     );
     if (updated) res.status(200).json({ user });
-    else {
-      next(new apiError("No User Found with this id"), 400);
-    }
+    log.info("Success update");
+  } else {
+    next(new apiError("No User Found with this id"), 400);
+    log.error("No User Found with this id/email");
   }
 });
 const logOut = (req, res) => {
@@ -100,5 +110,5 @@ module.exports = {
   getSpecificUser,
   deleteUser,
   updateUser,
-  logOut
+  logOut,
 };

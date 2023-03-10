@@ -2,6 +2,7 @@ const Express = require("Express");
 const userApi = Express.Router();
 const { checkId, checkMail, checkPassword } = require("../MiddleWares/validator");
 const multer = require("multer");
+const checkToken = require("../MiddleWares/checkToken");
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "upload");
@@ -24,7 +25,7 @@ userApi.route("/")
   .post(upload.single("profileImage"), checkPassword, checkMail, createUser)
   .get(getUsers);
 userApi.route("/:id")
-  .get(checkId, getSpecificUser)
+  .get(checkId, checkToken, getSpecificUser)
   .put(checkId, updateUser)
   .delete(checkId, deleteUser);
 module.exports = userApi;
