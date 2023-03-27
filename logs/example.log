@@ -2,3 +2,4 @@
 2023-03-10T15:17:04.768Z [winston custom format] info: Events Error: Unauthenticated user
 2023-03-10T15:27:26.041Z [winston custom format] info: Accepted getUsers Operation
 2023-03-10T15:28:32.076Z [winston custom format] info: Success Create user operation
+2023-03-10T15:29:14.362Z [winston custom format] error: This email already in dataBase<MongoServerError>
