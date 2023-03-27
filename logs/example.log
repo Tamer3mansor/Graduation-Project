@@ -3,3 +3,23 @@
 2023-03-10T15:27:26.041Z [winston custom format] info: Accepted getUsers Operation
 2023-03-10T15:28:32.076Z [winston custom format] info: Success Create user operation
 2023-03-10T15:29:14.362Z [winston custom format] error: This email already in dataBase<MongoServerError>
+2023-03-10T17:01:34.776Z [winston custom format] info: Accepted getUsers Operation
+2023-03-10T17:02:20.194Z [winston custom format] info: Accepted getUsers Operation
+2023-03-10T17:02:57.862Z [winston custom format] info: Accepted getUsers Operation
+2023-03-10T17:03:04.850Z [winston custom format] error: This email already in dataBase<MongoServerError>
+2023-03-10T17:03:26.993Z [winston custom format] info: Success get user operation
+2023-03-10T17:03:36.643Z [winston custom format] info: Success get user operation
+2023-03-10T17:04:26.616Z [winston custom format] info: Success Create user operation
+2023-03-27T15:15:46.978Z [winston custom format] info: Accepted getUsers Operation
+2023-03-27T15:16:26.023Z [winston custom format] error: This email already in dataBase<MongoServerError>
+2023-03-27T15:16:35.036Z [winston custom format] info: Success Create user operation
+2023-03-27T15:17:06.398Z [winston custom format] info: Success Create user operation
+2023-03-27T15:17:35.351Z [winston custom format] info: Success get user operation
+2023-03-27T15:30:57.045Z [winston custom format] info: Success get user operation
+2023-03-27T15:32:25.267Z [winston custom format] info: Success get user operation
+2023-03-27T15:35:36.868Z [winston custom format] info: Success delete operation
+2023-03-27T16:02:31.315Z [winston custom format] info: Accepted getUsers Operation
+2023-03-27T16:02:35.483Z [winston custom format] info: Success Create user operation
+2023-03-27T16:02:39.628Z [winston custom format] error: This email already in dataBase<MongoServerError>
+2023-03-27T16:02:43.805Z [winston custom format] info: Success get user operation
+2023-03-27T16:02:52.984Z [winston custom format] info: Success delete operation

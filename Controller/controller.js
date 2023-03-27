@@ -1,4 +1,7 @@
 /* eslint-disable new-cap */
+// const app = require("express")();
+// const http = require("http").Server(app);
+// const io = require("socket.io")(http);
 const userModel = require("../models/user");
 const asyncHandler = require("express-async-handler");
 const apiError = require("../utils/apiError");
@@ -54,11 +57,12 @@ const createUser = asyncHandler(async (req, res, next) => {
 const getSpecificUser = asyncHandler(async (req, res, next) => {
   const { email, password } = req.body;
   const user = await userModel.loginAuth(email, password);
+  console.log(user, user._id);
   if (user) {
     const token = createToken(email, password);
     res.cookie("userjwt", token, {
       httpOnly: true,
-      maxAge: 3 * 24 * 60 * 60 * 1000,
+      maxAge: 3 * 24 * 60 * 60 * 1000
     });
     res.status(200).json({ user });
     log.info("Success get user operation");
@@ -71,7 +75,7 @@ const deleteUser = asyncHandler(async (req, res, next) => {
   const { email, password } = req.body;
   const user = await userModel.loginAuth(email, password);
   if (user) {
-    const { id } = user._id;
+    const id = user._id;
     const deleted = await userModel.findByIdAndDelete(id);
     if (deleted) res.status(200).json({ deleted });
     log.info("Success delete operation");
@@ -104,11 +108,22 @@ const logOut = (req, res) => {
   res.cookie("userjwt", " ", { maxAge: 1 });
   res.redirect("/");
 };
+
+// This section to add deepSpeech(send , receive);
+
+// const deepSpeech = (req, res) => {
+//   io.on("connection", socket => {
+//     // emit to get record from front
+//     socket.on("toDeep", record => {
+//     // Function to send to model
+//     });
+//   });
+// };
 module.exports = {
   getUsers,
   createUser,
   getSpecificUser,
   deleteUser,
   updateUser,
-  logOut,
+  logOut
 };
