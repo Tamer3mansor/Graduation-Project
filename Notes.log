@@ -13,8 +13,7 @@ create controller <logIn signUP....> <done>
 add HandelError <done>
 add Auth <jwt> <done>
 add logger <done>
-add audit
-swigger
+add audit ...!
+swigger 
 unit test 
-
 

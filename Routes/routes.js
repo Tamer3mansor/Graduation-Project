@@ -1,4 +1,5 @@
-const Express = require("Express");
+/* eslint-disable no-unused-vars */
+const Express = require("express");
 const userApi = Express.Router();
 const { checkId, checkMail, checkPassword } = require("../MiddleWares/validator");
 const multer = require("multer");
@@ -14,18 +15,35 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 const {
   getUsers,
+  forgot,
   createUser,
   getSpecificUser,
   deleteUser,
   updateUser,
-  // eslint-disable-next-line no-unused-vars
-  logOut
+  logOut,
+  GetReset,
+  PostReset
 } = require("../Controller/controller");
-userApi.route("/")
+userApi
+  .route("/")
   .post(upload.single("profileImage"), checkPassword, checkMail, createUser)
-  .get(getUsers);
-userApi.route("/:id")
-  .get(checkId, checkToken, getSpecificUser)
-  .put(checkId, updateUser)
-  .delete(checkId, deleteUser);
+  .delete(checkPassword, checkMail, deleteUser)
+  .get(checkToken, getSpecificUser);
+userApi
+  .route("/:id")
+  .put(checkId, checkPassword, checkMail, updateUser);
+userApi
+  .route("/Forget_password")
+  .get()
+  .post(forgot);
+userApi
+  .route("/reset-password/:id/:token")
+  .get(GetReset)
+  .post(PostReset);
+
+// .put(checkPassword, checkMail, updateUser)
+// .get(getUsers)
+//   .get(checkId, checkToken, getSpecificUser)
+//   .delete(checkId, checkPassword, checkMail, deleteUser);
 module.exports = userApi;
+// POST GET PUT:: DELETE

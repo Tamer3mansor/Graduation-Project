@@ -20,7 +20,11 @@ const checkMail = [
   message
 ];
 const checkPassword = [
-  body("password").notEmpty().withMessage("Password is required"),
+  body("password")
+    .notEmpty()
+    .withMessage("Password is required")
+    .isLength({ min: 6 })
+    .withMessage("too short password min length is 6"),
   message
 ];
 module.exports = { checkId, checkPassword, checkMail };

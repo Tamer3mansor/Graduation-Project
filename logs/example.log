@@ -23,3 +23,132 @@
 2023-03-27T16:02:39.628Z [winston custom format] error: This email already in dataBase<MongoServerError>
 2023-03-27T16:02:43.805Z [winston custom format] info: Success get user operation
 2023-03-27T16:02:52.984Z [winston custom format] info: Success delete operation
+2023-04-07T07:50:11.372Z [winston custom format] info: Accepted getUsers Operation
+2023-04-07T07:50:14.205Z [winston custom format] info: Accepted getUsers Operation
+2023-04-07T07:50:41.781Z [winston custom format] info: Accepted getUsers Operation
+2023-04-07T08:05:06.308Z [winston custom format] info: Success Create user operation
+2023-04-07T08:07:06.938Z [winston custom format] error: This email already in dataBase<MongoServerError>
+2023-04-07T08:07:33.303Z [winston custom format] info: Success Create user operation
+2023-04-07T08:07:43.109Z [winston custom format] error: Error while trying to create try agin <ValidationError>
+2023-04-07T08:07:54.204Z [winston custom format] error: Error while trying to create try agin <ValidationError>
+2023-04-07T08:07:57.782Z [winston custom format] error: Error while trying to create try agin <ValidationError>
+2023-04-07T08:08:02.503Z [winston custom format] info: Success Create user operation
+2023-04-07T08:20:45.731Z [winston custom format] info: Success Create user operation
+2023-04-07T08:21:35.206Z [winston custom format] info: Accepted getUsers Operation
+2023-04-07T08:33:09.006Z [winston custom format] info: Accepted getUsers Operation
+2023-04-07T08:34:33.462Z [winston custom format] info: Success update
+2023-04-07T08:45:13.193Z [winston custom format] error: This email already in dataBase<MongoServerError>
+2023-04-07T08:45:22.018Z [winston custom format] info: Success Create user operation
+2023-04-07T08:53:16.357Z [winston custom format] error: This email already in dataBase<MongoServerError>
+2023-04-07T08:58:45.300Z [winston custom format] info: Success update
+2023-04-07T08:59:05.278Z [winston custom format] info: Success update
+2023-04-07T09:02:54.216Z [winston custom format] info: Success Create user operation
+2023-04-07T09:03:06.156Z [winston custom format] info: Success update
+2023-04-07T09:03:29.221Z [winston custom format] info: Success update
+2023-04-07T09:08:02.837Z [winston custom format] error: Error while trying to create try agin <TypeError>
+2023-04-07T09:12:16.198Z [winston custom format] info: Success update
+2023-04-07T09:13:15.597Z [winston custom format] error: Error while trying to create try agin <Error>
+2023-04-07T09:15:21.525Z [winston custom format] info: Success update
+2023-04-07T09:15:24.293Z [winston custom format] info: Success update
+2023-04-07T09:15:45.465Z [winston custom format] info: Success update
+2023-04-07T09:16:02.646Z [winston custom format] info: Success delete operation
+2023-04-07T12:51:32.491Z [winston custom format] info: Success delete operation
+2023-04-07T12:52:58.555Z [winston custom format] error: This email already in dataBase<MongoServerError>
+2023-04-07T12:54:34.793Z [winston custom format] error: Not verified token
+2023-04-07T12:54:50.573Z [winston custom format] error: Not verified token
+2023-04-07T12:56:15.904Z [winston custom format] error: Not verified token
+2023-04-07T12:56:49.160Z [winston custom format] error: Not verified token
+2023-04-07T12:58:01.358Z [winston custom format] error: Not verified token
+2023-04-07T12:58:31.504Z [winston custom format] error: Not verified token
+2023-04-07T13:00:26.710Z [winston custom format] error: Not verified token
+2023-04-07T13:01:26.661Z [winston custom format] error: Not verified token
+2023-04-07T13:02:04.994Z [winston custom format] error: Not verified token
+2023-04-07T13:03:43.713Z [winston custom format] error: Not verified token
+2023-04-07T13:05:20.220Z [winston custom format] error: Not verified token
+2023-04-07T13:05:37.458Z [winston custom format] error: Not verified token
+2023-04-07T13:06:04.812Z [winston custom format] error: Not verified token
+2023-04-07T13:06:42.758Z [winston custom format] info: Success update
+2023-04-07T13:09:00.411Z [winston custom format] error: Not verified token
+2023-04-07T13:09:17.136Z [winston custom format] error: Not verified token
+2023-04-07T13:10:05.765Z [winston custom format] error: Not verified token
+2023-04-07T13:18:07.868Z [winston custom format] info: verified password
+2023-04-07T13:18:50.190Z [winston custom format] info: verified password
+2023-04-07T13:19:21.095Z [winston custom format] error: Not verified token
+2023-04-07T13:19:41.781Z [winston custom format] error: Not verified token
+2023-04-07T13:20:20.411Z [winston custom format] error: Not verified token
+2023-04-07T13:22:29.470Z [winston custom format] info: verified password
+2023-04-07T13:23:05.677Z [winston custom format] error: Not verified token
+2023-04-07T13:24:00.184Z [winston custom format] error: Not verified token
+2023-04-07T13:24:24.306Z [winston custom format] error: Not verified token
+2023-04-07T13:26:33.764Z [winston custom format] info: verified password
+2023-04-07T13:31:33.869Z [winston custom format] error: Not verified token
+2023-04-07T13:32:01.130Z [winston custom format] error: Not verified token
+2023-04-07T13:32:34.372Z [winston custom format] error: Not verified token
+2023-04-07T13:33:20.188Z [winston custom format] error: Not verified token
+2023-04-07T13:33:37.803Z [winston custom format] info: verified password
+2023-04-07T13:33:43.237Z [winston custom format] info: verified 
+2023-04-07T13:33:48.376Z [winston custom format] info: verified 
+2023-04-07T13:34:43.335Z [winston custom format] info: verified 
+2023-04-07T13:35:11.868Z [winston custom format] info: verified 
+2023-04-07T13:37:23.820Z [winston custom format] info: verified 
+2023-04-07T13:39:11.532Z [winston custom format] error: Not verified token
+2023-04-07T13:39:23.700Z [winston custom format] info: verified password
+2023-04-07T13:39:50.658Z [winston custom format] error: Not verified token
+2023-04-07T13:40:11.716Z [winston custom format] error: Not verified token
+2023-04-07T13:40:46.627Z [winston custom format] error: Not verified token
+2023-04-07T13:41:21.487Z [winston custom format] error: Not verified token
+2023-04-07T13:41:57.305Z [winston custom format] error: Not verified token
+2023-04-07T13:42:19.998Z [winston custom format] error: Not verified token
+2023-04-07T14:28:42.810Z [winston custom format] error: Not verified token
+2023-04-07T14:29:43.437Z [winston custom format] error: Not verified token
+2023-04-07T14:30:49.516Z [winston custom format] info: verified password
+2023-04-07T14:31:03.461Z [winston custom format] error: Not verified token
+2023-04-07T14:32:14.881Z [winston custom format] error: Not verified token
+2023-04-07T14:32:46.180Z [winston custom format] error: Not verified token
+2023-04-07T14:37:39.884Z [winston custom format] error: Not verified token
+2023-04-07T14:41:53.649Z [winston custom format] error: Not verified token
+2023-04-07T14:42:13.582Z [winston custom format] info: verified password
+2023-04-07T14:53:54.794Z [winston custom format] error: Not verified token
+2023-04-07T14:55:16.958Z [winston custom format] info: verified password
+2023-04-07T14:57:24.263Z [winston custom format] info: verified password
+2023-04-07T15:00:23.968Z [winston custom format] info: verified password
+2023-04-07T15:00:54.085Z [winston custom format] info: verified password
+2023-04-07T15:05:09.353Z [winston custom format] info: verified password
+2023-04-07T15:05:22.628Z [winston custom format] info: verified password
+2023-04-07T15:10:17.962Z [winston custom format] info: verified password
+2023-04-07T15:10:26.381Z [winston custom format] info: verified password
+2023-04-07T15:10:48.418Z [winston custom format] info: verified password
+2023-04-07T15:17:39.953Z [winston custom format] info: verified password
+2023-04-07T15:19:00.163Z [winston custom format] error: This email already in dataBase<MongoServerError>
+2023-04-07T15:20:42.312Z [winston custom format] info: Success Create user operation
+2023-04-07T15:21:01.039Z [winston custom format] info: Success get user operation
+2023-04-07T15:21:16.582Z [winston custom format] error: This email already in dataBase<MongoServerError>
+2023-04-07T15:22:10.046Z [winston custom format] info: Success delete operation
+2023-04-07T15:22:51.856Z [winston custom format] error: No User Found with this email
+2023-04-07T15:32:01.239Z [winston custom format] info: Success Create user operation
+2023-04-07T15:32:14.937Z [winston custom format] error: This email already in dataBase<MongoServerError>
+2023-04-07T15:35:41.380Z [winston custom format] info: Success delete operation
+2023-04-07T15:35:47.881Z [winston custom format] info: Success Create user operation
+2023-04-07T15:38:04.198Z [winston custom format] error: This email already in dataBase<MongoServerError>
+2023-04-07T15:38:14.798Z [winston custom format] info: Success get user operation
+2023-04-07T15:38:40.160Z [winston custom format] error: This email already in dataBase<MongoServerError>
+2023-04-07T15:38:47.373Z [winston custom format] info: Success update
+2023-04-07T15:39:24.558Z [winston custom format] error: This email already in dataBase<MongoServerError>
+2023-04-07T15:40:21.725Z [winston custom format] error: This email already in dataBase<MongoServerError>
+2023-04-07T15:41:02.351Z [winston custom format] info: Success get user operation
+2023-04-07T15:41:07.649Z [winston custom format] info: Success get user operation
+2023-04-07T15:41:44.560Z [winston custom format] info: verified password
+2023-04-07T15:42:09.843Z [winston custom format] error: No User Found with this email
+2023-04-07T15:43:49.013Z [winston custom format] info: Success get user operation
+2023-04-07T15:52:03.477Z [winston custom format] error: This email already in dataBase<MongoServerError>
+2023-04-07T15:55:24.336Z [winston custom format] error: This email already in dataBase<MongoServerError>
+2023-04-07T15:55:52.821Z [winston custom format] info: Success Create user operation
+2023-04-07T15:56:09.712Z [winston custom format] info: Success get user operation
+2023-04-07T15:58:53.329Z [winston custom format] info: Success get user operation
+2023-04-07T15:59:08.293Z [winston custom format] error: This email already in dataBase<MongoServerError>
+2023-04-07T15:59:20.961Z [winston custom format] info: Success update
+2023-04-07T16:00:06.499Z [winston custom format] error: This email already in dataBase<MongoServerError>
+2023-04-07T16:01:33.418Z [winston custom format] info: Success get user operation
+2023-04-07T16:03:04.543Z [winston custom format] info: verified password
+2023-04-07T16:03:19.549Z [winston custom format] info: verified password
+2023-04-07T16:04:33.721Z [winston custom format] info: Success delete operation

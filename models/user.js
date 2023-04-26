@@ -7,15 +7,15 @@ const userSchema = new mongoose.Schema(
   {
     email: {
       type: String,
-      require: [true, "please enter Name"],
+      require: [true],
       unique: true,
       lowercase: true,
-      validate: [isEmail, "please enter a valid email"]
+      validate: [isEmail]
     },
     password: {
       type: String,
-      require: [true, "please enter a password"],
-      minlength: [6, "password must be more than 6 char"]
+      require: [true],
+      minlength: [6]
     },
     level: {
       type: String,
@@ -36,17 +36,23 @@ userSchema.pre("save", async function (next) {
   next();
 });
 // auth that user is loged
-userSchema.statics.loginAuth = async function (email, password) {
-  const user = await this.findOne({ email });
-  if (user) {
-    const passwordAuth = await bcrypt.compare(password, user.password);
-    if (passwordAuth) {
-      return user;
-    } else {
-      throw (new apiError(("Incorrect password"), 400));
-    }
+userSchema.statics.loginAuth = async function (email, password = "forget") {
+  if (password === "forget") {
+    const user = await this.findOne({ email });
+    if (user) return user;
+    else throw (new apiError(("Incorrect Email"), 400));
   } else {
-    throw (new apiError(("Incorrect Email"), 400));
+    const user = await this.findOne({ email });
+    if (user) {
+      const passwordAuth = await bcrypt.compare(password, user.password);
+      if (passwordAuth) {
+        return user;
+      } else {
+        throw (new apiError(("Incorrect password"), 400));
+      }
+    } else {
+      throw (new apiError(("Incorrect Email"), 400));
+    }
   }
 };
 const userModel = mongoose.model("userModel", userSchema);

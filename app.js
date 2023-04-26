@@ -1,4 +1,5 @@
-const Express = require("Express");
+const Express = require("express");
+const rateLimit = require("express-rate-limit");
 const db = require("./connectTodb/db");
 const app = Express();
 const morgan = require("morgan");
@@ -8,8 +9,17 @@ const globalError = require("./MiddleWares/globalError");
 const cookieParser = require("cookie-parser");
 const mongoSanitize = require("express-mongo-sanitize");
 const hpp = require("hpp");
-const csrf = require("express-csrf");
+// const csrf = require("express-csrf");
 
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+  standardHeaders: true,
+  legacyHeaders: false
+});
+
+// Apply the rate limiting middleware to all requests
+app.use(limiter);
 require("dotenv").config();
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
